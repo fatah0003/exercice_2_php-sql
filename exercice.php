@@ -41,9 +41,29 @@ echo "Table commandes créée avec succès !", PHP_EOL;
 
 
 $clientrepo = new ClientRepository($db);
+$commandesrepo = new CommandesRepository($db);
 
-$client = new Client(null, "Ophelie", "elephant", "Rue de la rose", "42325", "Roanne", "0605820894");
-$clientrepo->add($client);
+//--------------------test ajout d'un client
+// $client = new Client(6, "yanis", "yanick", "Rue de la soie", "69002", "Lyon", "0605826584");
+// $clientrepo->add($client);
+
+//---------------------test update d'un client
+// $client = new Client(6, "yanis", "yanick", "Rue de la soie", "69002", "Lyon", "0605826584");
+// $clientrepo->update($client);
+
+//----------------------test supprission d'un client
+// $clientrepo->deleteClientxithCommande(4);
+
+//---------------------test ajout d'une commande 
+// $commande = new Commandes(null, 4, "2020-05-05", 50.9);
+// $commandesrepo->add($commande);
+
+//----------------------test afficher les client
+// $clients = $clientrepo->findAll();
+// print_r($clients);
+
+
+
 
 
 

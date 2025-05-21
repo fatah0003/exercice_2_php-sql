@@ -31,16 +31,16 @@ class Clientrepository {
     public function update(Client $client){
         $request = "UPDATE client 
         SET nom = :nom, prenom = :prenom, adresse = :adresse, cp = :cp, ville = :ville, phone = :phone 
-        WHERE id=:id ;";
+        WHERE id=:id";
 
         $statement = $this->db->prepare($request); 
-        $statement->bindParam("id", $client->id);
-        $statement->bindParam("nom", $client->nom);
-        $statement->bindParam("prenom", $client->prenom);
-        $statement->bindParam("adresse", $client->adresse);
-        $statement->bindParam("cp", $client->cp);
-        $statement->bindParam("ville", $client->ville);
-        $statement->bindParam("phone", $client->phone);
+        $statement->bindParam(":id", $client->id);
+        $statement->bindParam(":nom", $client->nom);
+        $statement->bindParam(":prenom", $client->prenom);
+        $statement->bindParam(":adresse", $client->adresse);
+        $statement->bindParam(":cp", $client->cp);
+        $statement->bindParam(":ville", $client->ville);
+        $statement->bindParam(":phone", $client->phone);
         return $statement->execute(); 
     }
 
