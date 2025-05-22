@@ -55,12 +55,28 @@ $commandesrepo = new CommandesRepository($db);
 // $clientrepo->deleteClientxithCommande(4);
 
 //---------------------test ajout d'une commande 
-// $commande = new Commandes(null, 4, "2020-05-05", 50.9);
+// $commande = new Commandes(null, 1, "2020-05-05", 50.9);
 // $commandesrepo->add($commande);
 
 //----------------------test afficher les client
 // $clients = $clientrepo->findAll();
 // print_r($clients);
+
+// ---------------Tester afficher le détail d'un client avec ses commandes
+// $details = $clientrepo->selectByIdWithCommandes(1);
+// foreach ($details as $ligne) {
+//     print_r($ligne);
+// }
+
+//---------------------Tester la modification d'une commande
+// $commande = new Commandes(3, 1, "2024-06-01", 89.90);
+// $commandesrepo->updateCommande($commande);
+
+//----------------Teser supprission d'une commande
+// $commandesrepo->deleteCommande(3);
+
+
+
 
 
 

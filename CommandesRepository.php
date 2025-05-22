@@ -14,4 +14,27 @@ class CommandesRepository{
             "date" => $commandes->date, 
             "total" => $commandes->total]); 
     }
+
+    public function updateCommande(Commandes $commande){
+    $request = "UPDATE commandes 
+                SET client_id = :client_id, date = :date, total = :total 
+                WHERE id = :id";
+
+    $statement = $this->db->prepare($request); 
+    $statement->bindParam(":id", $commande->id);
+    $statement->bindParam(":client_id", $commande->client_id);
+    $statement->bindParam(":date", $commande->date);
+    $statement->bindParam(":total", $commande->total);
+    
+    return $statement->execute(); 
+}
+
+public function deleteCommande(int $id) {
+    $request = "DELETE FROM commandes WHERE id = :id";
+    $statement = $this->db->prepare($request);
+
+    return $statement->execute([':id' => $id]);
+}
+
+
 }

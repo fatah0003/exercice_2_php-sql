@@ -62,4 +62,17 @@ class Clientrepository {
         }
         
     }
+
+    public function selectByIdWithCommandes(int $idClient): array {
+    $request = "SELECT c.*, cmd.id AS commande_id, cmd.date, cmd.total
+                FROM client c
+                JOIN commandes cmd ON c.id = cmd.client_id
+                WHERE c.id = :id";
+
+    $stmt = $this->db->prepare($request);
+    $stmt->execute(["id" => $idClient]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }
